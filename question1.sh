@@ -273,3 +273,105 @@ echo ${my_array[0]}
 echo ${my_array[1]}
 my_array[1]="new_value"
 
+#pwd
+#man
+#cat
+#touch
+#history
+#mkdir
+#rmdir
+#find . -name "*.txt"
+#tr echo "hello" | tr 'a-z' 'A-Z'
+#rm
+#cp
+#mv
+#head -n 20
+#tail -c 10
+#grep "word" filename.txt
+#ec -l -w -c -m
+#ln -s name Sname
+#sort -t ":" -k 2 <filename>
+#diff
+#tac
+#more
+#less
+#find
+#locate
+#whoami
+#who
+
+
+# To add users and groups
+
+sudo useradd user1
+sudo useradd user2
+
+sudo passwd user1
+sudo passwd user2
+
+sudo groupadd collab
+
+sudo usermod -aG collab user1
+sudo usermod -aG collab user2
+
+sudo mkdir /share_dir
+sudo chown -R root:collab /share_dir
+
+sudo chmod 770 /share_dir
+sudo chmod g+s /shre_dir
+
+su - user1
+cd /share_dir
+touch test1.txt
+
+su - user4
+cd /share_dir
+
+sudo userdel user1
+sudo groupdel grp
+groups user1
+
+
+#ACL
+
+sudo useradd user1
+sudo useradd user2
+sudo useradd user3
+
+sudo passwd user1
+sudo passwd user2
+sudo passwd user3
+
+sudo mkdir /project_dir
+
+sudo chmod 770 /project_dir
+
+sudo setfacl -m u:user1:rwx /project_dir
+sudo setfacl -m u:user2:r-x /project_dir
+sudo setfacl -m u:user3:rw- /project_dir
+
+
+sudo setfacl -d -m u:user1:rwx /project_dir
+sudo setfacl -d -m u:user2:r-x /project_dir
+sudo setfacl -d -m u:user3:rw- /project_dir
+
+getfacl /project_dir
+
+su - user1
+
+# Sticky bit
+
+sudo mkdir /shared_notes
+
+sudo chmod 777 /shared_notes
+
+sudo chmod +t /shared_notes
+
+ls -ld
+
+su - user1
+touch 
+
+su - user2
+rm 
+
