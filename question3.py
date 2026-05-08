@@ -219,7 +219,7 @@ For immutable
 #  speaks = ["English"]
 
 #class Child(Parent):
-#  super.__init__()
+#  super().__init__()
 #  self.speaks.append("German")
 
 #isinstance(Miles, Dog)
