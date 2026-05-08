@@ -295,7 +295,53 @@ library1.display_available_books()
 
 '''
 
+'''
+import re
 
+def is_valid_phone(phone_number1):
+    pattern = r'^[0-9]{10}$'
+    if re.match(pattern, phone_number1):
+        return True
+    else:
+        return False
+
+def find_p_words(text):
+    pattern = r'\b[pP][a-zA-Z]{2,}\b'
+    matches = re.findall(pattern, text)
+    return matches
+
+def find_dates(text):
+    date_pattern = r'\d{2}-\d{2}-\d{4}'
+
+    match = re.search(date_pattern, text)
+
+    if match:
+        print(f"Full match: {match.group()}")
+    else:
+        print("No date found in the specified format.")
+
+def is_strong_password(password):
+    # Regex Breakdown:
+    # ^                         Start of string
+    # (?!.*\s)                  Negative Lookahead: Ensure NO spaces are present
+    # (?=.*[A-Z])               Lookahead: at least one uppercase letter
+    # (?=.*[a-z])               Lookahead: at least one lowercase letter
+    # (?=.*\d)                  Lookahead: at least one digit
+    # (?=.*[!@#$%^&*(),.?":{}|<>]) Lookahead: at least one special character
+    # .{8,}                     Actual match: any character, at least 8 times
+    # $                         End of string
+
+    pattern = r"^(?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*(),.?\":{}|<>]).{8,}$"
+
+    if re.match(pattern, password):
+        return True
+    return False
+
+def remove_punctuation(text):
+    # Matches , . ! or ?
+    return re.sub(r'[,.!?]', '', text)
+    
+'''
 
 
 
