@@ -223,7 +223,77 @@ For immutable
 #  self.speaks.append("German")
 
 #isinstance(Miles, Dog)
+'''
+class Book:
+    def __init__(self, title, author, is_available):
+        self.title = title
+        self.author = author
+        self.is_available = is_available
 
+    def display_info(self):
+        print(f"Title: {self.title} :: Author : {self.author} :: Is_available: {self.is_available}")
+
+class Library():
+    def __init__(self):
+        self.book_list = []
+
+    def add_book(self, book):
+        self.book_list.append(book)
+
+    def borrow_book(self, title):
+        for book in self.book_list:
+            if book.title == title:
+                if book.is_available == "YES":
+                    book.is_available = "NO"
+
+    def return_book(self, title):
+        for book in self.book_list:
+            if book.title == title:
+                if book.is_available == "NO":
+                    book.is_available = "YES"
+
+    def display_available_books(self):
+        print("----------------------------------")
+        print("List of Available Books")
+        print("----------------------------------")
+        print()
+        for book in self.book_list:
+            if book.is_available == "YES":
+                print(f"Title: {book.title} :: Author : {book.author}")
+
+        print()
+
+book1 = Book("Harry Potter: Philospher's Stone", "JK Rowling", "YES")
+book2 = Book("Harry Potter: Chamber of Secrets", "JK Rowling", "YES")
+book3 = Book("Harry Potter: Prisoner of Azkaban", "JK Rowling", "YES")
+book4 = Book("Harry Potter: Goblet of Fire", "JK Rowling", "YES")
+book5 = Book("Harry Potter: Order of Phoenix", "JK Rowling", "YES")
+book6 = Book("Harry Potter: Half Blood Prince", "JK Rowling", "YES")
+book7 = Book("Harry Potter: Deathly Hallows", "JK Rowling", "YES")
+
+
+library1 = Library()
+
+library1.add_book(book1)
+library1.add_book(book2)
+library1.add_book(book3)
+library1.add_book(book4)
+library1.add_book(book5)
+library1.add_book(book6)
+library1.add_book(book7)
+
+library1.display_available_books()
+
+library1.borrow_book(book2.title)
+library1.borrow_book(book3.title)
+
+library1.display_available_books()
+
+library1.return_book(book3.title)
+
+library1.display_available_books()
+
+'''
 
 
 
