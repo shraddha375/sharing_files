@@ -1,0 +1,26 @@
+commands to remember:
+
+create_clock -period 10 [get_ports clk]
+
+
+
+tools-> settings -> synthesis -> fanout_limit
+report_high_fanout_nets
+
+
+
+(* fsm_encoding= "sequential"/"gray"/"one_hot" *) reg [WIDTH-1:0] current_state;
+
+specify
+	$setup(D, posedge clk, SETUP);
+	$hold(posedge clk, D, HOLD);
+endspecify
+
+
+
+vlog +cover=bcstf C:\\Users\\pg-dvlsi\\Desktop\\Lab10\\sq.v C:\\Users\\pg-dvlsi\\Desktop\\Lab10\\tb_sq.v
+vsim -voptargs=+acc work.tb_sq -coverage
+run -all in waveform window
+coverage save results.ucdb
+vcover report -html results.ucdb
+
